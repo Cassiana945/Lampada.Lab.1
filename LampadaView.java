@@ -2,9 +2,10 @@ package view;
 
 import br.Lampada;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-    public class LampadaView {  ////////////////interface
+    public class LampadaView { 
         private JPanel simulador;
         private JTextArea simuladorDeLampadaTextArea;
         private JButton desligarButton;
@@ -13,18 +14,19 @@ import java.awt.event.ActionListener;
         private JLabel lbTitulo;
         private Lampada lampada;
 public LampadaView() {
-    lampada = new Lampada(false);
 
-ligarButton.addActionListener(e ->{lampada.setStatus(true);atualizarTextoLampada();}); ////button funcionalidade ligar
+ligarButton.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) { System.out.println("ligado"); }
+}); ////button funcionalidade ligar
 
-desligarButton.addActionListener(e -> {lampada.setStatus(false);atualizarTextoLampada();
-}); ////button funcionalidade desligar
+
+desligarButton.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) { System.out.println("desligado"); }
+});////button funcionalidade desligar
+
         }
-        private void atualizarTextoLampada() {
-            String status = lampada.isStatus() ? "Ligada" : "Desligada";
-            simuladorDeLampadaTextArea.setText("Lâmpada está " + status);
-        }
-
 
         public static void main(String[] args) {
             JFrame frame = new JFrame("Simulador de Lâmpada");
