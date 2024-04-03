@@ -25,5 +25,3 @@ public class Lampada {
         this.cor = cor;
     }
 }
-
-
